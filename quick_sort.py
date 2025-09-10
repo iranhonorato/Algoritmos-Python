@@ -1,9 +1,8 @@
-def particiona(lista:list):
-    inicio = 0 
+def particiona(inicio:int, lista:list, fim:int):
     lp = inicio
     pivo = lista[inicio]
     count = inicio + 1
-    while count < len(lista):
+    while count < fim:
         if lista[count] < pivo:
             lp += 1 
             lista[lp], lista[count] = lista[count], lista[lp]
@@ -15,4 +14,4 @@ def particiona(lista:list):
 # 
 
 lista = [5,1,7,2,3,6,4]
-print(particiona(lista))
+print(particiona(0, lista, len(lista)))
