@@ -14,15 +14,17 @@ def particiona(lista:list, inicio:int, fim:int) -> int:
 
 
 
-def quick_sort(lista:list, inicio:int, fim:int):
-    if inicio < fim:
-        lp = particiona(lista, inicio, fim)
-        quick_sort(lista, inicio, lp)
-        quick_sort(lista, lp+1, fim)
-    return lista
+def quick_sort(lista:list, inicio:int, fim:int) -> None:
+    if inicio >= fim:
+        return
+    lp = particiona(lista, inicio, fim)
+    quick_sort(lista, inicio, lp)
+    quick_sort(lista, lp+1, fim)
+
 
 
 lista = [5,1,7,2,3,6,4]
-print(quick_sort(lista,0,len(lista)))
+quick_sort(lista,0,len(lista))
+print(lista)
 
 
