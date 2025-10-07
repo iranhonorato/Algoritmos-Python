@@ -1,27 +1,49 @@
 
 
-def merge(left:list, right:list) -> list:
-
-    total_length = len(left) + len(right)
-    result = [-1 for i in range(total_length)]
+def merge(left:list, right:list, array:list) -> list:
 
     i = 0
     j = 0 
-    for k in range(total_length):
+    k = 0
+    while k < len(array):
         if i == len(left):
-            result[k] = right[j]
+            array[k] = right[j]
             j +=1 
         elif j == len(right):
-            result[k] = left[i]
+            array[k] = left[i]
             i += 1 
         elif left[i] > right[j]:
-            result[k] = right[j]
+            array[k] = right[j]
             j += 1 
         else:
-            result[k] = left[i]
+            array[k] = left[i]
             i += 1
-    return result
+        k += 1
+    return array
 
 
+
+
+def merge_sort(array:list) -> None:
+    if len(array) <= 1:
+        return 
+    
+    meio = int(len(array)/2)
+    left = [-1 for i in range(meio)]
+    right = [-1 for j in range(len(array) - meio)]
+    for i in range(len(array)):
+        if i < meio:
+            left[i] = array[i]
+        else: 
+            right[i - meio] = array[i]
+
+    merge_sort(left)
+    merge_sort(right)
+    merge(left, right, array)
+
+
+lista = [2,4,3,1,5]
+merge_sort(lista)
+print(lista)
 
 
