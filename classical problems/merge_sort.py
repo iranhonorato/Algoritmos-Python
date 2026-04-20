@@ -25,21 +25,7 @@ def merge(left:list, right:list, array:list) -> list:
 
 
 def merge_sort(array:list) -> None:
-    if len(array) <= 1:
-        return 
-    
-    meio = int(len(array)/2)
-    left = [-1 for i in range(meio)]
-    right = [-1 for j in range(len(array) - meio)]
-    for i in range(len(array)):
-        if i < meio:
-            left[i] = array[i]
-        else: 
-            right[i - meio] = array[i]
-
-    merge_sort(left)
-    merge_sort(right)
-    merge(left, right, array)
+    pass
 
 
 lista = [2,4,3,1,5]

@@ -6,4 +6,13 @@ def fibonacci(n):
     return result
 
 
-print(fibonacci(200))
+
+
+def fatorial(n):
+    if n == 0:
+        return 1
+    
+    result = n*fatorial(n-1)
+    return result 
+
+
