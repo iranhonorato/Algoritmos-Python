@@ -3,11 +3,11 @@ from trees import *
 
 
 # contando todos os nós de uma árvore
-def conta_nodos(root:Optional[TreeNode]):
+def conta_nodes(root:Optional[TreeNode]):
     if root is None:
         return 0
     
-    return conta_nodos(root.left) + conta_nodos(root.right) + 1
+    return conta_nodes(root.left) + conta_nodes(root.right) + 1
 
 
 # for i in range(len(array_trees)):
