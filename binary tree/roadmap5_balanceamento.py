@@ -1,5 +1,6 @@
 from typing import Optional, List
 from roadmap4_inserir_node import inserir_node
+from roadmap1_valida_arvore import valida_arvore
 from trees import *
 
 
@@ -14,8 +15,8 @@ def rebalanceamento(root:Optional[TreeNode]):
         if root is None:
             return
         
-        valores.append(root.val)
         coletar_valores(root.left, valores)
+        valores.append(root.val)
         coletar_valores(root.right, valores)
 
         return
