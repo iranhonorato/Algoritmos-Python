@@ -83,3 +83,66 @@ g5 = [
     [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0],
 ]
+
+
+inf = float("inf")
+
+# ── Grafo 6: não-direcionado com pesos ────────────────────────────────────────
+#
+#   0 --3-- 1 --1-- 2
+#    \      |
+#     6     4
+#      \    |
+#       3 --5-- 4
+#
+# Útil para testar caminhos alternativos: 0→1→3 vs 0→3 direto
+
+g6 = [
+    [inf,   3, inf,   6, inf],
+    [  3, inf,   1,   4, inf],
+    [inf,   1, inf, inf, inf],
+    [  6,   4, inf, inf,   5],
+    [inf, inf, inf,   5, inf],
+]
+
+
+# ── Grafo 7: direcionado com pesos ────────────────────────────────────────────
+#
+#   0 --2-→ 1
+#   |       |
+#   8       3
+#   ↓       ↓
+#   3 ←-1-- 2
+#
+# O caminho mais curto de 0→3 é 0→1→2→3 (custo 6), não 0→3 direto (custo 8)
+
+g7 = [
+    [inf,   2, inf,   8],
+    [inf, inf,   3, inf],
+    [inf, inf, inf,   1],
+    [inf, inf, inf, inf],
+]
+
+
+# ── Grafo 8: não-direcionado com pesos altos e baixos ─────────────────────────
+#
+#   0 --1-- 1 --1-- 2
+#   |               |
+#   100             1
+#   |               |
+#   3 -----1------- 4  (não existe aresta 3-4 direto, só via 2 ou via 0)
+#   |
+#   1
+#   |
+#   5
+#
+# Testa se Dijkstra evita o caminho 0→3 de custo 100
+
+g8 = [
+    [inf,   1, inf, 100, inf, inf],
+    [  1, inf,   1, inf, inf, inf],
+    [inf,   1, inf, inf,   1, inf],
+    [100, inf, inf, inf, inf,   1],
+    [inf, inf,   1, inf, inf, inf],
+    [inf, inf, inf,   1, inf, inf],
+]
