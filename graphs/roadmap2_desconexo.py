@@ -1,4 +1,4 @@
-from grafos import g1, g2, g3, g4, g5
+from grafos import *
 
 
 def verifica_componentes_conexas(grafo):
@@ -41,7 +41,29 @@ def verifica_componentes_conexas_bfs(grafo):
     return len(visited) == len(grafo)
 
 
-lista = [g1,g2,g3,g4,g5]
 
-for idx in range(len(lista)):
-    print(f"O grafo {idx+1} possui apenas componentes conexas? {verifica_componentes_conexas_bfs(lista[idx])}")
+
+def conta_componentes(grafo):
+    visited = set()
+
+    def dfs(nodo_atual):
+        if nodo_atual in visited:
+            return
+        
+        visited.add(nodo_atual)
+        for nodo_vizinho in range(len(grafo)):
+            if grafo[nodo_atual][nodo_vizinho] == 1:
+                dfs(nodo_vizinho)
+            
+        return 
+        
+    count = 0 
+    for nodo in range(len(grafo)):
+        if nodo not in visited:
+            dfs(nodo)
+            count += 1
+
+    return count
+
+
+print(conta_componentes(g9))

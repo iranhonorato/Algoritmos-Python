@@ -46,10 +46,6 @@ grafo = [
 from typing import List
 
 def busca_profundidade(grafo:List[List[int]], nodo_inicio:int):
-    """
-    grafo: É a nossa extrutura em si (uma matriz)
-    nodo_inicio: Trata-se do nó onde iniciamos nossa caminhada (linha da matriz)
-    """
     visited = set()
 
     def dfs(nodo_atual):

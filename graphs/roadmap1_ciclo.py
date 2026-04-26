@@ -11,15 +11,15 @@ def verifica_ciclo_grafo_nao_direcionado(grafo):
             return False
         
         visited.add(nodo_atual)
-        for nodo_vizinho in range(len(grafo)):
-            if grafo[nodo_atual][nodo_vizinho] == 0:
+        for prox_nodo in range(len(grafo)):
+            if grafo[nodo_atual][prox_nodo] == 0:
                 continue
 
-            if nodo_vizinho not in visited:
-                if dfs(nodo_vizinho, nodo_atual):
+            if prox_nodo not in visited:
+                if dfs(prox_nodo, nodo_atual):
                     return True # Propagar ess resultado à pilha 
             
-            elif nodo_vizinho != vizinho_anterior:
+            elif prox_nodo != vizinho_anterior:
                 return True
         
         return False
